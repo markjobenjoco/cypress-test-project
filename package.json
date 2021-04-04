@@ -1,0 +1,14 @@
+{
+  "name": "seleniumeasy_practice_cypress",
+  "version": "1.0.0",
+  "description": "Practicing cypress automation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Joco - NSI",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^6.5.0"
+  }
+}
