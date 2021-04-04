@@ -4,7 +4,8 @@
   "description": "Practicing cypress automation.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run-all-test": "npx cypress run",
+    "run-all-selenium-easy-demo-test": "npx cypress run --spec cypress/integration/selenium-easy-demo/*.js"
   },
   "author": "Mark Joco - NSI",
   "license": "ISC",
