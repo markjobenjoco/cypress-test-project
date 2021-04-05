@@ -5,17 +5,24 @@ class Homepage_PO {
   }
 
   onClick_RemoveHomepagePopUpMessage() {
-    cy.get('#at-cv-lightbox-win').within(($form) => {
+    cy.get('#at-cv-lightbox-win', { timeout: 10000 }).within(($form) => {
       cy.wrap($form).find('#at-cv-lightbox-close').click({ force: true });
     });
   }
 
-  ListOfChallenge(menu_category, challenge) {
+  onSelect_ListOfChallenge(menu_category, challenge) {
     cy.get('#treemenu').within(() => {
-      cy.get('.tree-branch').contains(menu_category).click();
-      cy.contains(challenge).click();
+      cy.get('.tree-branch')
+        .contains(menu_category)
+        .within(($form) => {
+          cy.wrap($form).click();
+          cy.wrap($form)
+            .closest('.tree-branch')
+            .within(() => {
+              cy.contains(challenge).click();
+            });
+        });
     });
-    cy.url().should('contain', 'basic-first-form-demo');
   }
 }
 export default Homepage_PO;

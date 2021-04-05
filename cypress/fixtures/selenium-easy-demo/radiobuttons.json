@@ -1,0 +1,9 @@
+{
+  "singleRadioButton": {
+    "gender": "Female"
+  },
+  "groupRadioButton": {
+    "gender": "Male",
+    "age": "15 - 50"
+  }
+}

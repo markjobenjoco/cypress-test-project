@@ -1,0 +1,13 @@
+{
+  "first_name": "dummy",
+  "last_name": "account",
+  "email": "dummyqa143@gmail.com",
+  "phone": "1234567891",
+  "address": "3103  Massachusetts Avenue",
+  "city": "Washington",
+  "state": "Washington",
+  "zip": "14344",
+  "website": "www.google.com",
+  "isHosting": "No",
+  "comment": "This is a test dummy account using cypress automation to type in the Project Description field."
+}
