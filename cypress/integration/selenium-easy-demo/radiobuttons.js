@@ -1,8 +1,8 @@
-import Homepage_PO from '..//..//support/PageObjects/selenium_easy_demo/Homepage';
+// import Homepage_PO from '..//..//support/PageObjects/selenium_easy_demo/Homepage';
 import RadionButtons_PO from '..//..//support/PageObjects/selenium_easy_demo/Radiobuttons';
 /// <reference types="cypress"/>
 describe('Practice test for radionbuttons demo', () => {
-  const homepage_PO = new Homepage_PO();
+  // const homepage_PO = new Homepage_PO();
   const radiobuttos_PO = new RadionButtons_PO();
 
   before('Open fixture file', () => {
@@ -14,9 +14,11 @@ describe('Practice test for radionbuttons demo', () => {
   });
 
   beforeEach('Open homepage.', () => {
-    homepage_PO.navigateTo_Homepage();
-    homepage_PO.onClick_RemoveHomepagePopUpMessage();
-    homepage_PO.onSelect_ListOfChallenge('Input Forms', 'Radio Buttons Demo');
+    // homepage_PO.navigateTo_Homepage();
+    // homepage_PO.onClick_RemoveHomepagePopUpMessage();
+    // homepage_PO.onSelect_ListOfChallenge('Input Forms', 'Radio Buttons Demo');
+    cy.openHomepage();
+    cy.selectChallenge('Input Forms', 'Radio Buttons Demo');
   });
 
   it('Test for Radio Button Demo', () => {

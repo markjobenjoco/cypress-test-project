@@ -1,8 +1,8 @@
-import Homepage_PO from '..//..//support//PageObjects//selenium_easy_demo//Homepage';
+// import Homepage_PO from '..//..//support//PageObjects//selenium_easy_demo//Homepage';
 import SimpleFormDemo_PO from '..//..//support//PageObjects//selenium_easy_demo//SimpleFormDemo';
 /// <reference types="cypress"/>
 describe('Practice test for simple form demo.', () => {
-  const homepage_PO = new Homepage_PO();
+  // const homepage_PO = new Homepage_PO();
   const simpleformdemo_PO = new SimpleFormDemo_PO();
 
   before('Open fixture.', () => {
@@ -14,9 +14,11 @@ describe('Practice test for simple form demo.', () => {
   });
 
   beforeEach('Open homepage.', () => {
-    homepage_PO.navigateTo_Homepage();
-    homepage_PO.onClick_RemoveHomepagePopUpMessage();
-    homepage_PO.ListOfChallenge('Input Forms', 'Simple Form Demo');
+    // homepage_PO.navigateTo_Homepage();
+    // homepage_PO.onClick_RemoveHomepagePopUpMessage();
+    // homepage_PO.ListOfChallenge('Input Forms', 'Simple Form Demo');
+    cy.openHomepage();
+    cy.selectChallenge('Input Forms', 'Simple Form Demo');
   });
 
   it('Test for Single Input Field', () => {

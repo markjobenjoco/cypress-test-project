@@ -30,3 +30,25 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   // failing the test
   return false;
 });
+
+Cypress.Commands.add('openHomepage', () => {
+  cy.visit('/');
+  cy.get('#at-cv-lightbox-win', { timeout: 10000 }).within(($form) => {
+    cy.wrap($form).find('#at-cv-lightbox-close').click({ force: true });
+  });
+});
+
+Cypress.Commands.add('selectChallenge', (category, challenge) => {
+  cy.get('#treemenu').within(() => {
+    cy.get('.tree-branch')
+      .contains(category)
+      .within(($form) => {
+        cy.wrap($form).click();
+        cy.wrap($form)
+          .closest('.tree-branch')
+          .within(() => {
+            cy.contains(challenge).click();
+          });
+      });
+  });
+});
