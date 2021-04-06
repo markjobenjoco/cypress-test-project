@@ -1,0 +1,9 @@
+{
+  "day": "Friday",
+  "first": {
+    "states": ["Washington", "Texas", "Pennsylvania", "Florida"]
+  },
+  "all": {
+    "states": ["New York", "California", "Washington", "Texas"]
+  }
+}

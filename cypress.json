@@ -8,11 +8,7 @@
   "experimentalStudio": true,
   "retries": {
     "runMode": 2,
-    "openMode": 0
-  },
-  "reporter": "cypress-multi-reporters",
-  "reporterOptions": {
-    "configFile": "reporter-config.json"
+    "openMode": 1
   },
   "ignoreTestFiles": ["**/examples/*.js"]
 }
