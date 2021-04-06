@@ -1,4 +1,4 @@
-import CheckboxDemo_PO from '..//..//support/PageObjects/selenium_easy_demo/CheckboxDemo';
+import CheckboxDemo_PO from '..//..//support/PageObjects/selenium_easy_demo/Checkbox';
 /// <reference types="cypress"/>
 describe('Practice test for checkbox demo.', () => {
   const checkbox_PO = new CheckboxDemo_PO();

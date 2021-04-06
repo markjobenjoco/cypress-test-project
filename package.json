@@ -4,7 +4,8 @@
   "description": "Practicing cypress automation.",
   "main": "index.js",
   "scripts": {
-    "run-all-test": "npx cypress run",
+    "run-all-test-headless": "npx cypress run",
+    "run-all-test-headed": "npx cypress run --headed",
     "run-all-selenium-easy-demo-test": "npx cypress run --spec cypress/integration/selenium-easy-demo/*.js"
   },
   "author": "Mark Joco - NSI",
