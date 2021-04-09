@@ -23,32 +23,39 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-
+const quiet = { log: false }
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
-  return false;
-});
+  return false
+})
 
 Cypress.Commands.add('openHomepage', () => {
-  cy.visit('/');
-  cy.get('#at-cv-lightbox-win', { timeout: 10000 }).within(($form) => {
-    cy.wrap($form).find('#at-cv-lightbox-close').click({ force: true });
-  });
-});
+  cy.visit('/')
+  cy.get('#at-cv-lightbox-win', { timeout: 10000, log: false }).within(
+    ($form) => {
+      cy.wrap($form).find('#at-cv-lightbox-close').click({ force: true })
+    }
+  )
+})
 
 Cypress.Commands.add('selectChallenge', (category, challenge) => {
   cy.get('#treemenu').within(() => {
     cy.get('.tree-branch')
       .contains(category)
       .within(($form) => {
-        cy.wrap($form).click();
+        cy.wrap($form).click()
         cy.wrap($form)
           .closest('.tree-branch')
           .within(() => {
-            cy.contains(challenge).click();
-          });
-      });
-  });
-});
+            cy.contains(challenge).click()
+          })
+      })
+  })
+})
+
+Cypress.Commands.add('enterTextToField', (field, text) => {
+  const f = (field) => `[name="${field}"]`
+  cy.get(f(field), quiet).type(text, quiet)
+})

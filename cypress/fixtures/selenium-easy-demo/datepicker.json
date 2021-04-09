@@ -1,0 +1,19 @@
+{
+  "date": {
+    "oldMonth": "December",
+    "oldDay": 27,
+    "oldYear": 2020
+  },
+  "dateRange": {
+    "start": {
+      "month": "December",
+      "day": 15,
+      "year": 2020
+    },
+    "end": {
+      "month": "February",
+      "day": 14,
+      "year": 2022
+    }
+  }
+}

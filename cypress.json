@@ -8,10 +8,8 @@
   "experimentalStudio": true,
   "retries": {
     "runMode": 2,
-    "openMode": 1
+    "openMode": 0
   },
-  "ignoreTestFiles": [
-    "**/examples/*.js"
-  ],
+  "ignoreTestFiles": ["**/examples/*.js"],
   "projectId": "bf6z92"
 }
