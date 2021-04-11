@@ -1,7 +1,7 @@
 {
   "baseUrl": "https://www.seleniumeasy.com/test/",
   "watchForFileChanges": false,
-  "chromeWebSecurity": true,
+  "chromeWebSecurity": false,
   "viewportHeight": 1300,
   "viewportWidth": 1920,
   "record": false,
