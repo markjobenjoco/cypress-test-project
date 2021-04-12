@@ -43,51 +43,48 @@ describe('Practice test for Table Sort And Search Demo', () => {
     let header = []
     let found = false
 
+    cy.get('th').each(($el) => {
+      // if (index == 0)
+      header.push($el.text())
+    })
+
     function findInPage(index) {
-      cy.get('th')
-        .as('tableHeader')
-        .each(($el) => {
-          if (index == 0) header.push($el.text())
-        })
-        .then(() => {
-          // cy.log(`Current index value ${index}`)
-          cy.get('a.paginate_button:not(.previous):not(.next)').as('pages')
-          cy.get('@pages')
-            .its('length')
-            .then((len) => {
-              if (index > len) {
-                return false
-              } else if (index == len) {
-                cy.log(
-                  `Unable to find this ${fieldName} with a value of ${value} in any pages`
-                )
-                cy.wrap(index).should('not.eq', len)
-              } else {
-                const indexColumn = header.indexOf(`${fieldName}`) + 1
-                // cy.get('@pages').eq(index, quiet).click()
-                cy.get(`table tbody > tr > td:nth-of-type(${indexColumn})`)
-                  .each(($itemText) => {
-                    const itemText = $itemText.text()
-                    if (itemText.includes(value)) {
-                      cy.log(
-                        `Found this ${fieldName} with a value of ${value} in pages ${
-                          index + 1
-                        }`
-                      )
-                      found = true
-                      cy.wrap(itemText).should('contain', value)
-                    }
-                  })
-                  .then(() => {
-                    if (!found) {
-                      cy.get('#example_next').click()
-                      findInPage(++index)
-                    }
-                  })
-              }
-            })
+      // cy.log(`Current index value ${index}`)
+      cy.get('a.paginate_button:not(.previous):not(.next)').as('pages')
+      cy.get('@pages')
+        .its('length')
+        .then((len) => {
+          if (index == len) {
+            cy.log(
+              `Unable to find this ${fieldName} with a value of ${value} in any pages`
+            )
+            cy.wrap(index).should('not.eq', len)
+          } else {
+            const indexColumn = header.indexOf(`${fieldName}`) + 1
+            // cy.get('@pages').eq(index, quiet).click()
+            cy.get(`table tbody > tr > td:nth-of-type(${indexColumn})`)
+              .each(($itemText) => {
+                const itemText = $itemText.text()
+                if (itemText.includes(value)) {
+                  cy.log(
+                    `Found this ${fieldName} with a value of ${value} in pages ${
+                      index + 1
+                    }`
+                  )
+                  found = true
+                  cy.wrap(itemText).should('contain', value)
+                }
+              })
+              .then(() => {
+                if (!found) {
+                  cy.get('#example_next').click()
+                  findInPage(++index)
+                }
+              })
+          }
         })
     }
+    cy.log('Execute find in page ...')
     findInPage(0)
   }
 })
