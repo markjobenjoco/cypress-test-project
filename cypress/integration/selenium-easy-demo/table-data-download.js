@@ -22,10 +22,10 @@ describe('Practice test for Data Table with Download / Print', () => {
   }
   function downloadFile() {
     cy.get('[aria-controls="example"] > span').contains('PDF').click()
-    cy.downloadFile(
-      'https://www.seleniumeasy.com/test/table-data-download-demo.html',
-      'cypress/fixtures/selenium-easy-demo/myDownloads',
-      'table.pdf'
-    )
+    // cy.downloadFile(
+    //   'https://www.seleniumeasy.com/test/table-data-download-demo.html',
+    //   'cypress/fixtures/selenium-easy-demo/myDownloads',
+    //   'table.pdf'
+    // )
   }
 })
