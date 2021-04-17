@@ -23,6 +23,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+require('cypress-downloadfile/lib/downloadFileCommand')
+
 const quiet = { log: false }
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -58,4 +60,8 @@ Cypress.Commands.add('selectChallenge', (category, challenge) => {
 Cypress.Commands.add('enterTextToField', (field, text) => {
   const f = (field) => `[name="${field}"]`
   cy.get(f(field), quiet).type(text, quiet)
+})
+
+Cypress.Commands.add('goToForm', (formTitle) => {
+  cy.contains('[class="panel panel-default"]', formTitle)
 })

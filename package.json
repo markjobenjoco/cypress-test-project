@@ -14,5 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "^6.5.0"
+  },
+  "dependencies": {
+    "cypress-downloadfile": "^1.2.0"
   }
 }
