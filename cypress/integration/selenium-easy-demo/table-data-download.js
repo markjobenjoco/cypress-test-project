@@ -5,27 +5,29 @@ describe('Practice test for Data Table with Download / Print', () => {
   })
   it('Test for Copy file', () => {
     search('Mark')
-    // copy()
-    downloadFile()
+    extractDataByUsing('pdf')
   })
   function search(value) {
     cy.get('[type="search"]').type(value)
   }
-  function copy() {
-    cy.get('[aria-controls="example"] > span')
-      .contains('Copy', { matchCase: false })
-      .click()
-    cy.get('#datatables_buttons_info > h2').should('be.visible').and('exist')
-    cy.get('#datatables_buttons_info > h2', { timeout: 5000 }).should(
-      'not.exist'
-    )
-  }
-  function downloadFile() {
-    cy.get('[aria-controls="example"] > span').contains('PDF').click()
-    // cy.downloadFile(
-    //   'https://www.seleniumeasy.com/test/table-data-download-demo.html',
-    //   'cypress/fixtures/selenium-easy-demo/myDownloads',
-    //   'table.pdf'
-    // )
+  function extractDataByUsing(fileType) {
+    function file() {
+      let fileExtension
+      if (fileType.includes('csv')) {
+        fileExtension = 'csv'
+      } else if (fileType.includes('excel')) {
+        fileExtension = 'xlsx'
+      } else if (fileType.includes('pdf')) {
+        fileExtension = 'pdf'
+      }
+      return fileExtension
+    }
+    cy.log(file())
+    cy.contains('.dt-button', fileType, { matchCase: false }).click()
+
+    const filePath = `cypress/downloads/Selenium Easy - Download Table Data to CSV, Excel, PDF and Print.${file()}`
+    cy.log(filePath)
+    cy.pause()
+    cy.readFile(filePath).should('exist')
   }
 })
