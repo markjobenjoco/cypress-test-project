@@ -65,3 +65,8 @@ Cypress.Commands.add('enterTextToField', (field, text) => {
 Cypress.Commands.add('goToForm', (formTitle) => {
   cy.contains('[class="panel panel-default"]', formTitle)
 })
+
+Cypress.Commands.add('openPage', (page) => {
+  cy.visit(page)
+  cy.url().should('contain', page.replace('.html', ''))
+})
