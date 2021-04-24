@@ -24,6 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 require('cypress-downloadfile/lib/downloadFileCommand')
+require('@4tw/cypress-drag-drop')
 
 const quiet = { log: false }
 
