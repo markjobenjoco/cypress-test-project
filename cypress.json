@@ -11,5 +11,12 @@
     "openMode": 0
   },
   "ignoreTestFiles": ["**/examples/*.js", "**/upwork/*.js"],
-  "projectId": "bf6z92"
+  "projectId": "bf6z92",
+  "env": {
+    "auth_username": "sk_test_NL48A6mrB9CoBV1gwrSUoX6L00nuZTOqgx",
+    "stripe_baseUrl": "https://api.stripe.com",
+    "stripe_basePath": "/v1",
+    "stripe_customerEndpoint": "/customers",
+    "stripe_authorization": "Basic c2tfdGVzdF9OTDQ4QTZtckI5Q29CVjFnd3JTVW9YNkwwMG51WlRPcWd4Og=="
+  }
 }
